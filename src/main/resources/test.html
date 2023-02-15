@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>公益诉讼线索随手拍</title>
+    <!-- 引入 WeUI CDN 链接 -->
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css" />
+    <!-- <link rel="stylesheet" href="https://res.wx.qq.com/open/js/jweixin-1.3.2.js" /> -->
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+    <script>
+        function getAddress() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError)
+            }
+        }
+        function showPosition(position) {
+            var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+            var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+                + latlon + "&zoom=14&size=400x300&sensor=false";
+            document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "'>";
+        }
+        function showError(error) {
+            console.log(error)
+        }
+    </script>
+    
+</head>
+
+<body>
+    <div class="page">
+        <div class="weui-form">
+            <div class="weui-form__text-area">
+                <h2 class="weui-form__title">公益诉讼线索随手拍</h2>
+                <div class="weui-form__desc">展示表单页面的信息结构样式, 分别由头部区域/控件区域/提示区域/操作区域和底部信息区域组成。</div>
+            </div>
+            <div class="weui-form__control-area">
+                <div class="weui-cells__group weui-cells__group_form">
+                    <div class="weui-cells__title">表单组标题</div>
+                    <div class="weui-cells">
+                        <label for="js_input1" class="weui-cell weui-cell_active">
+
+                            <div class="weui-cell__hd"><span class="weui-label">1.姓名</span></div>
+                        </label>
+
+                        <label for="js_input1" class="weui-cell weui-cell_active">
+
+                            <div class="weui-cell__bd">
+                                <input id="js_input1" class="weui-input" placeholder="请输入姓名" />
+                            </div>
+                        </label>
+                        <label for="js_input2" class="weui-cell weui-cell_active">
+
+                            <div class="weui-cell__hd"><span class="weui-label">2.联系方式</span></div>
+                        </label>
+                        <label for="js_input2" class="weui-cell weui-cell_active">
+
+                            <div class="weui-cell__bd">
+                                <input id="js_input2" class="weui-input" placeholder="请输入手机号码" />
+                            </div>
+                        </label>
+                        <label for="js_input3" class="weui-cell weui-cell_active">
+
+                            <div class="weui-cell__hd"><span class="weui-label">3.地理位置</span></div>
+                        </label>
+                        <label for="js_input3" class="weui-cell weui-cell_active">
+                            <div class="weui-cell__bd">
+                                <a onclick="getAddress()" role="button" class="weui-btn weui-btn_default">点击获得地理位置</a>
+                            </div>
+                            <div id="mapholder"></div>
+                        </label>
+                        <label for="js_input4" class="weui-cell weui-cell_active">
+
+                            <div class="weui-cell__hd"><span class="weui-label">4.线索类别</span></div>
+                        </label>
+                        <label for="js_input4" class="weui-cell weui-cell_active">
+
+                            <div class="weui-cell__bd">
+                                <div class="weui-cells__group weui-cells__group_form">
+                                    <div class="weui-cells weui-cells_radio">
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x11">
+                                            <div class="weui-cell__bd">
+                                                <p>国有财产保护</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" class="weui-check" name="radio1" id="x11" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x12">
+
+                                            <div class="weui-cell__bd">
+                                                <p>环境资源保护</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" name="radio1" class="weui-check" id="x12"
+                                                    checked="checked" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x13">
+
+                                            <div class="weui-cell__bd">
+                                                <p>国有土地出让</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" name="radio1" class="weui-check" id="x13" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x14">
+
+                                            <div class="weui-cell__bd">
+                                                <p>食品药品安全</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" name="radio1" class="weui-check" id="x14" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x15">
+
+                                            <div class="weui-cell__bd">
+                                                <p>英雄烈士保护</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" name="radio1" class="weui-check" id="x15" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x16">
+
+                                            <div class="weui-cell__bd">
+                                                <p>未成年人保护</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" name="radio1" class="weui-check" id="x16" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x17">
+
+                                            <div class="weui-cell__bd">
+                                                <p>安全生产</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" name="radio1" class="weui-check" id="x17" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x18">
+
+                                            <div class="weui-cell__bd">
+                                                <p>军人 权益保护</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" name="radio1" class="weui-check" id="x18" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x19">
+
+                                            <div class="weui-cell__bd">
+                                                <p>个人信息保护</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" name="radio1" class="weui-check" id="x19" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x20">
+
+                                            <div class="weui-cell__bd">
+                                                <p>妇女权益保护</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" name="radio1" class="weui-check" id="x20" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x21">
+
+                                            <div class="weui-cell__bd">
+                                                <p>反垄断</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" name="radio1" class="weui-check" id="x21" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x22">
+
+                                            <div class="weui-cell__bd">
+                                                <p>反电信网络诈骗</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" name="radio1" class="weui-check" id="x22" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x23">
+
+                                            <div class="weui-cell__bd">
+                                                <p>农产品质量安全</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" name="radio1" class="weui-check" id="x23" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+                                        <label class="weui-cell weui-cell_active weui-check__label" for="x12">
+
+                                            <div class="weui-cell__bd">
+                                                <p>其它</p>
+                                            </div>
+                                            <div class="weui-cell__ft">
+                                                <input type="radio" name="radio1" class="weui-check" id="x24" />
+                                                <span class="weui-icon-checked"></span>
+                                            </div>
+                                        </label>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        <label for="js_input5" class="weui-cell weui-cell_active">
+
+                            <div class="weui-cell__hd"><span class="weui-label">5.线索描述</span></div>
+                        </label>
+                        <label for="js_input5" class="weui-cell weui-cell_active">
+                            <div class="weui-cell__bd">
+                                <textarea class="weui-textarea" placeholder="请输入内容" rows="5"
+                                    maxlength="1000"></textarea>
+                            </div>
+                        </label>
+                        <label for="js_input6" class="weui-cell weui-cell_active">
+
+                            <div class="weui-cell__hd"><span class="weui-label">6.现场照片</span></div>
+                        </label>
+                        <label for="js_input6" class="weui-cell weui-cell_active">
+
+                            <div class="weui-cell__bd">
+                                <!-- <a href="#button_default" role="button" class="weui-btn weui-btn_default"
+                                    style="">点击上传文件</a> -->
+                                <div class="weui-uploader__input-box">
+                                    <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*"
+                                        multiple />
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-form__tips-area">
+                <p class="weui-form__tips">
+                    表单页提示，居中对齐
+                </p>
+            </div>
+            <div class="weui-form__opr-area">
+                <a role="button" aria-disabled="false" class="weui-btn weui-btn_primary" href="javascript:"
+                    id="showTooltips">确定</a>
+            </div>
+            <div class="weui-form__tips-area">
+                <p class="weui-form__tips">
+                    表单页提示，居中对齐
+                </p>
+            </div>
+            <div class="weui-form__extra-area">
+                <div class="weui-footer">
+                    <p class="weui-footer__links">
+                        <a href="javascript:" class="weui-footer__link">底部链接文本</a>
+                    </p>
+                    <p class="weui-footer__text">Copyright © 2008-2019 weui.io</p>
+                </div>
+            </div>
+        </div>
+        <div role="alert" id="js_toast" style="display: none;">
+            <div class="weui-mask_transparent"></div>
+            <div class="weui-toast">
+                <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+                <p class="weui-toast__content">已完成</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script type="text/javascript">
+        $(function () {
+            var $toast = $('#js_toast');
+            var $input = $('#js_input');
+            $input.on('input', function () {
+                if ($input.val()) {
+                    $('#showTooltips').removeClass('weui-btn_disabled');
+                    $('#showTooltips').attr('aria-disabled', 'false');
+                    $('#showTooltips').removeAttr('disabled');
+                } else {
+                    $('#showTooltips').addClass('weui-btn_disabled');
+                    $('#showTooltips').addClass('weui-btn_disabled');
+                    $('#showTooltips').attr('aria-disabled', 'true');
+                    $('#showTooltips').addAttr('disabled');
+                }
+            });
+            $('#showTooltips').on('click', function () {
+                if ($(this).hasClass('weui-btn_disabled')) return;
+
+                // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+                $('.page.cell').removeClass('slideIn');
+
+                $toast.attr('aria-live', 'assertive');
+                $toast.fadeIn(100);
+                setTimeout(function () {
+                    $toast.attr('aria-live', 'off');
+                    $toast.fadeOut(100);
+                }, 2000);
+            });
+
+            //$('.weui-cell').on('click', function(){
+            //  $(this).find('input').trigger('focus');
+            //});
+        });
+    </script> -->
+</body>
+
+</html>
